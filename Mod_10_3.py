@@ -14,8 +14,6 @@ class Bank:
             with self.lock:
                 self.balance += amount
                 print(f'Deposit: {amount} $. Balance: {self.balance} $')
-                if self.balance >= 500 and self.lock.locked():
-                    self.lock.release()
             time.sleep(0.001)
 
     def withdraw(self):
@@ -29,7 +27,6 @@ class Bank:
                           f'Actual balance: {self.balance} $')
                 else:
                     print(f'Request rejected: insufficient funds')
-                    self.lock.acquire()
 
 
 my_bank = Bank()
