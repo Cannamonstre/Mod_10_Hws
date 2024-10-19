@@ -27,7 +27,5 @@ if __name__ == '__main__':
     start_mp = time.time()
     with multiprocessing.Pool() as pool:
         pool.map(read_info, file_names)
-        pool.close()
-        pool.join()
     end_mp = time.time()
     print(f'Worktime with multiprocessing is {end_mp - start_mp} sec(s)')
